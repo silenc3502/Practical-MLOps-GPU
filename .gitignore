@@ -1,0 +1,5 @@
+# exclude .env
+.env
+
+# exclude .idea
+.idea
