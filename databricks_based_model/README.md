@@ -42,3 +42,8 @@ pip install transformers[torch]
 # After Training
 
 mlflow ui  
+
+# Check UI
+
+http://localhost:5000/  
+
