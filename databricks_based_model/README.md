@@ -47,3 +47,7 @@ mlflow ui
 
 http://localhost:5000/  
 
+<img width="544" height="395" alt="image" src="https://github.com/user-attachments/assets/6c352577-1ad5-4e28-bb80-6b60a16d0091" />
+
+<img width="998" height="432" alt="image" src="https://github.com/user-attachments/assets/4d58a8f8-02f1-4ceb-b35f-69c2fb4656bb" />
+
