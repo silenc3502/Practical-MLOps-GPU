@@ -42,6 +42,7 @@ pip install transformers[torch]
 # After Training
 
 mlflow ui  
+mlflow ui --backend-store-uri file:///C:/proj/works/Practical-MLOps-GPU/databricks_based_model/mlruns
 
 # Check UI
 

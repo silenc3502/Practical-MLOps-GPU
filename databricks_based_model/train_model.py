@@ -1,5 +1,6 @@
 import os
 import shutil
+import pickle  # 📌 LabelEncoder 저장을 위해 추가
 import pandas as pd
 import mlflow
 import mlflow.transformers
@@ -45,6 +46,7 @@ def train_hf_model(gold_path="./data/gold_table.parquet", model_dir="./results",
         le = LabelEncoder()
         df["labels"] = le.fit_transform(df["sentiment"])
     else:
+        le = None
         df["labels"] = df["sentiment"]
 
     train_df, val_df = train_test_split(df, test_size=0.2, random_state=42, stratify=df["labels"])
@@ -96,6 +98,11 @@ def train_hf_model(gold_path="./data/gold_table.parquet", model_dir="./results",
         trainer.train(resume_from_checkpoint=checkpoint)
 
         trainer.save_model(model_dir)  # 모델 저장
+
+        # 📌 LabelEncoder 저장
+        if le is not None:
+            with open(os.path.join(model_dir, "label_encoder.pkl"), "wb") as f:
+                pickle.dump(le, f)
 
         mlflow.transformers.log_model(
             transformers_model=model_dir,
